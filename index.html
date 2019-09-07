@@ -6,10 +6,81 @@
         <title>My Git Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
-        <h2>Hello World!</h2>
-        <h3>Hello World!</h3>
-        <h4>Hello World!</h4>
-        <h5>Hello World!</h5>
+        <div id = "end">
+
+        </div>
     </body>
 </html>
+
+<script>
+var ex1 ="aabbaccc";
+var ex2 = "ababcdcdababcdcd";
+var ex3 = "abcabcdede";
+
+$("#end").append(solution(ex1));
+
+
+function solution(s) {
+    var arr1 = s.substring(0);
+    var str_count;
+    for(var i = 1; i < arr1.length; i++)
+    {
+        str_count[i] = string_count(i,arr1);
+    }
+    
+    for(var j = 1; j < str_count.length; j++)
+    {
+        if(str_count[j-1] < str_count[j])
+        {
+            answer = str_count[j-1];
+        }
+        else if(str_count[j-1] > str_count[j])
+        {
+            answer = str_count[j];
+        }
+    }
+    
+    return answer;
+}
+
+function string_count(x,arr)
+{
+    var count = 0;
+    var block = arr.length/x;
+    var arr2 = new Array;
+    var sw=false;
+    for(var i = 0; i < block; i++)
+    {
+        for(var j = 0; j < x; j++)
+        {
+            arr2[i] += arr[i*x+j];
+        }
+    }
+
+    count += 2;
+
+    for(var k = 1; k < block; k++)
+    {
+
+        if(arr2[k-1] == arr2[k])
+        {
+            if(sw == false)
+            {
+                count += 1;
+                sw = true;
+            }
+            else
+            {
+
+            }
+        }
+        else if(arr2[k-1] != arr2[k])
+        {
+            sw = false;
+            count += x; 
+        }
+    }
+
+    return count;
+}
+</script>
